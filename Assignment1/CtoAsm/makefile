@@ -12,11 +12,11 @@ $(target): $(source)
 
 # disassemble the binary file
 dump: $(target)
-	objdump -d $(target) > $(toAsmb)
+	objdump -d $(target).exe > $(toAsmb)
 
 # clean the file
 clean:
-	rm -f $(target) $(toAsmb)
+	rm -f $(target).exe $(toAsmb)
 
 # run compiled code
 run: $(target)

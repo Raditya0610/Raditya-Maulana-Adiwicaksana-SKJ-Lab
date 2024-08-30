@@ -3,26 +3,26 @@
 # Variables
 CXX = g++
 CXXFLAGS = 
-TARGET = intmul
-SOURCE = intmul.cpp
-DISASM = $(TARGET).txt
+target = intmul
+source = intmul.cpp
+disassemble = $(target).txt
 
-all: $(TARGET)
+all: $(target)
 
 # rule for "make" command
-$(TARGET): $(SOURCE)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SOURCE)
+$(target): $(source)
+	$(CXX) $(CXXFLAGS) -o $(target) $(source)
 
 # disassemble the binary file
-dump: $(TARGET)
-	objdump -d $(TARGET) > $(DISASM)
+dump: $(target)
+	objdump -d $(target).exe > $(disassemble)
 
 # clean the file
 clean:
-	rm -f $(TARGET) $(DISASM)
+	rm -f $(target).exe $(disassemble)
 
 # run compiled code
-run: $(TARGET)
-	./$(TARGET)
+run: $(target)
+	./$(target)
 
 .PHONY: all dump clean run
